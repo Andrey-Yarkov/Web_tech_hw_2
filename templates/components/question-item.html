@@ -2,16 +2,7 @@
 
 <div class="row question">
     <div class="col-2">
-        <img src="{% static '/img/profile_avatar.jpg' %}" alt="" class="question-avatar">
-        <div class="d-flex justify-content-center likes-block">
-            <div class="likes-counter">
-                0
-            </div>
-            <div class="btn-group-vertical likes-btn-group">
-                <button type="button" class="btn btn-outline-success btn-sm likes-button">+</button>
-                <button type="button" class="btn btn-outline-danger btn-sm likes-button">-</button>
-            </div>
-        </div>
+        {% include 'components/user-rating-item.html' %}
     </div>
     <div class="col-10">
         <div class="question-title"><a href="{% url 'question' question_id=question.id %}">{{ question.title }}</a></div>
