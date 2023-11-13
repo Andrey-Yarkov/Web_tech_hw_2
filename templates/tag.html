@@ -13,6 +13,6 @@
 
 {% endfor %}
 
-{% include 'components/paginator-item.html' %}
+{% include 'components/paginator-item.html' with page_obj=questions_by_tag %}
 
 {% endblock %}
