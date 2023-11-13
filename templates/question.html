@@ -1,97 +1,19 @@
-{% extends 'layouts/base.html' %}
+{% extends 'layouts/base_authorized.html' %}
+
+{% load static %}
 
 {% block content %}
 
-<div class="row">
-    <div class="col-2">
-        <img src="../static/img/profile_avatar.jpg" alt="" class="current-question-avatar">
-        <div class="d-flex justify-content-center likes-block">
-            <div class="likes-counter">
-                0
-            </div>
-            <div class="btn-group-vertical likes-btn-group">
-                <button type="button" class="btn btn-outline-success btn-sm likes-button">+</button>
-                <button type="button" class="btn btn-outline-danger btn-sm likes-button">-</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-10">
-        <div class="current-question-title">First question?</div>
-        <div class="current-question-text">
-            Question text question text question text question text question text question text question
-            text
-            question text question text question text question text question text question text question
-            text
-            question text question text question text question text question text question text question
-            text
-        </div>
-        <div class="question-extra">
-            <h4>Tags: <a href="">tag1</a> <a href="">tag2</a>
-            </h4>
-        </div>
-    </div>
-</div>
+{% include 'components/current-question-item.html' %}
+
 <hr class="hr hr-blurry"/>
-<div class="row answer">
-    <div class="col-2">
-        <img src="../static/img/profile_avatar.jpg" alt="" class="answer-avatar">
-        <div class="d-flex justify-content-center likes-block">
-            <div class="likes-counter">
-                0
-            </div>
-            <div class="btn-group-vertical likes-btn-group">
-                <button type="button" class="btn btn-outline-success btn-sm likes-button">+</button>
-                <button type="button" class="btn btn-outline-danger btn-sm likes-button">-</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-10">
-        <div class="answer-text">
-            Question text question text question text question text question text question text question
-            text
-            question text question text question text question text question text question text question
-            text
-            question text question text question text question text question text question text question
-            text
-        </div>
-        <div class="form-check answer-extra">
-            <input class="form-check-input" type="checkbox" value="" id="check1">
-            <label class="form-check-label" for="check1">
-                Correct!
-            </label>
-        </div>
-    </div>
-</div>
-<div class="row answer">
-    <div class="col-2">
-        <img src="../static/img/profile_avatar.jpg" alt="" class="answer-avatar">
-        <div class="d-flex justify-content-center likes-block">
-            <div class="likes-counter">
-                0
-            </div>
-            <div class="btn-group-vertical likes-btn-group">
-                <button type="button" class="btn btn-outline-success btn-sm likes-button">+</button>
-                <button type="button" class="btn btn-outline-danger btn-sm likes-button">-</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-10">
-        <div class="answer-text">
-            Question text question text question text question text question text question text question
-            text
-            question text question text question text question text question text question text question
-            text
-            question text question text question text question text question text question text question
-            text
-        </div>
-        <div class="form-check answer-extra">
-            <input class="form-check-input" type="checkbox" value="" id="check2">
-            <label class="form-check-label" for="check2">
-                Correct!
-            </label>
-        </div>
-    </div>
-</div>
+
+{% for answer in answers %}
+
+{% include 'components/answer-item.html' %}
+
+{% endfor %}
+
 <div class="answer-page-navigation">
     <ul class="pagination">
         <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -101,7 +23,9 @@
         <li class="page-item"><a class="page-link" href="#">Next</a></li>
     </ul>
 </div>
+
 <hr class="hr hr-blurry"/>
+
 <textarea class="form-control" id="answer-text" rows="8"
           placeholder="Enter your answer here"></textarea>
 <div class="question-answer-btn-block">

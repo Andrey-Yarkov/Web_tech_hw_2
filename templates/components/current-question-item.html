@@ -1,0 +1,24 @@
+{% load static %}
+
+<div class="row">
+    <div class="col-2">
+        <img src="{% static '/img/profile_avatar.jpg' %}" alt="" class="current-question-avatar">
+        <div class="d-flex justify-content-center likes-block">
+            <div class="likes-counter">
+                0
+            </div>
+            <div class="btn-group-vertical likes-btn-group">
+                <button type="button" class="btn btn-outline-success btn-sm likes-button">+</button>
+                <button type="button" class="btn btn-outline-danger btn-sm likes-button">-</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-10">
+        <div class="current-question-title">{{ question.title }}</div>
+        <div class="current-question-text">{{ question.content }}</div>
+        <div class="question-extra">
+            <h4 style="display:inline; margin-left: 10px">Tags: <a href="{% url 'tag' tag_name='tag1' %}">tag1</a> <a href="{% url 'tag' tag_name='tag2' %}">tag2</a>
+            </h4>
+        </div>
+    </div>
+</div>
